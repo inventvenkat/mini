@@ -1,0 +1,33 @@
+<head>
+  <title>Venkat Todo</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Todo List</h1>
+
+      <form class="new-task">
+        <input type="text" name="text" placeholder="What should venkat do" />
+	<input type="text" name="by" placeholder="By" />
+	<input type="submit" name="submit" id="submit" value="Deliver">
+      </form>
+    </header>
+
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name="task">
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+    <span class="text">"{{text}}", this work is given by Mr/Ms {{by}} </span>
+  </li>
+</template>
